@@ -43,53 +43,57 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Function to display stars based on rating value
     const getStarRating = (rating) => {
-        const fullStars = Math.floor(rating); // Number of full stars
-        const halfStars = (rating % 1) >= 0.5 ? 1 : 0; // 1 if half-star, 0 if not
-        const emptyStars = 5 - fullStars - halfStars; // Remaining stars
-
-        // Create a string with star icons
+        const fullStars = Math.floor(rating);
+        const halfStars = (rating % 1) >= 0.5 ? 1 : 0;
+        const emptyStars = 5 - fullStars - halfStars;
         let starRating = '';
 
-        // Add full stars
         for (let i = 0; i < fullStars; i++) {
-            starRating += '★'; // Full star
+            starRating += '★';
         }
-
-        // Add half star if applicable
         if (halfStars) {
-            starRating += '☆'; // Half star (using a different character for this example)
+            starRating += '☆';
         }
-
-        // Add empty stars
         for (let i = 0; i < emptyStars; i++) {
-            starRating += '☆'; // Empty star
+            starRating += '☆';
         }
-
         return starRating;
+    };
+
+    // Function to show alert if search is empty
+    const showAlert = () => {
+        Swal.fire({
+            icon: "warning",
+            title: "Empty field!",
+            text: "Please enter a keyword before searching.",
+            confirmButtonText: "OK",
+            timer: 3000,
+            timerProgressBar: true
+        });
     };
 
     // Reusable search function
     const performSearch = async (keyword) => {
-        if (!keyword) return;
+        if (!keyword) {
+            showAlert();
+            return;
+        }
 
-        // Hide the hero section and show the header and results
         heroSection.style.display = "none";
         showHeader();
         resultsSection.classList.remove("hidden");
 
         try {
-            // Fetch data from the backend API with the provided keyword
             const response = await fetch(`http://localhost:3000/api/scrape?keyword=${encodeURIComponent(keyword)}`);
             if (!response.ok) throw new Error(`API Error: ${response.status} ${response.statusText}`);
 
-            // Parse the data and display the results
             const data = await response.json();
             resultsSection.innerHTML = data.length
                 ? data.map(product => `
                     <div>
                         <img src="${product.imageUrl}" alt="${product.title}">
                         <h3>${product.title}</h3>
-                        <p class="star-rating">${getStarRating(parseFloat(product.rating))}</p> <!-- Display stars -->
+                        <p class="star-rating">${getStarRating(parseFloat(product.rating))}</p>
                         <p>Reviews: ${product.reviews}</p>
                     </div>
                 `).join("")
