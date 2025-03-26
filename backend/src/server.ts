@@ -1,7 +1,7 @@
 import express, { Request, Response } from "express";
 import cors from "cors";
 import helmet from "helmet";
-import { scrapeAmazon } from "./scraper";
+import { scrapeAmazon } from "../scraper";
 
 const app = express();
 const PORT = 3000;
