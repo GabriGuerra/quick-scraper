@@ -1,0 +1,244 @@
+/* ====================================================
+   Resetting default margin, padding, and setting box-sizing
+   ==================================================== */
+   * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* ====================================================
+     Keyframe Animations
+     ==================================================== */
+  
+  /* Fade-in animation */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Slide-in animation for elements */
+  @keyframes slideIn {
+    from {
+      transform: translateY(-50px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  /* ====================================================
+     Global Styles
+     ==================================================== */
+  body {
+    font-family: 'Amazon Ember', Arial, sans-serif;
+    background: #EAEDED;
+    color: #111;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+  
+  /* ====================================================
+     Hero Section
+     ==================================================== */
+  
+  .hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #232F3E;
+    color: white;
+    text-align: center;
+    padding: 0 20px; /* Add padding for better spacing */
+  }
+  
+  /* Hero title */
+  .hero h2 {
+    font-size: 2rem;
+    margin-bottom: 20px; /* Smaller space below the title */
+    font-family: 'Ribeye', sans-serif; /* Ribeye font for the hero title */
+  }
+  
+  /* Hero search bar container */
+  .hero .search {
+    display: flex;
+    gap: 10px; /* Simple space between input and button */
+  }
+  
+  /* Hero search input field */
+  .hero .search input {
+    padding: 12px;
+    border: 2px solid #fff;
+    border-radius: 4px;
+    font-size: 1rem;
+    width: 280px; 
+  }
+  
+  /* Hero search button */
+  .hero .search button {
+    padding: 12px 20px;
+    background: #FF9900;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease;
+  }
+  
+  /* Hover effect on search button */
+  .hero .search button:hover {
+    background: #E47911;
+  }
+  
+  /* ====================================================
+     Header Styles
+     ==================================================== */
+  
+  header {
+    background: #232F3E;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    animation: slideIn 0.5s ease-in-out;
+    display: none; /* Initially hidden */
+  }
+  
+  header.hidden {
+    display: none; /* Ensures the header is not shown by default */
+  }
+  
+  /* Header container to organize items */
+  .header-container {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  /* Logo and main link */
+  header .logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    font-family: 'Ribeye', sans-serif;
+  }
+  
+  /* Header links style */
+  header a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  /* Header link hover effect */
+  header a:hover {
+    color: #FF9900;
+  }
+  
+  
+  /* Header search bar container */
+  header .search {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+  
+  /* Header input field */
+  header input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    width: 250px;
+  }
+  
+  /* Header search button */
+  header button {
+    background: #FF9900;
+    padding: 10px 20px;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease;
+  }
+  
+  /* Hover effect on header search button */
+  header button:hover {
+    background: #E47911;
+  }
+  
+  /* ====================================================
+     Results Section Styles
+     ==================================================== */
+  
+  .results {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 0;
+    padding-top: 80px; /* Add space below the fixed header */
+  }
+  
+  /* Hide results initially */
+  .results.hidden {
+    display: none;
+  }
+  
+  /* Individual result item styles */
+  .results div {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 280px;
+    text-align: center;
+    animation: fadeIn 0.5s ease forwards;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  /* Hover effect on result item */
+  .results div:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Result item image styles */
+  .results div img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+  
+  /* Result item title styles */
+  .results div h3 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  /* Result item description (reviews, etc.) */
+  .results div p {
+    font-size: 0.9rem;
+    color: #555;
+  }
+  

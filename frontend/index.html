@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon Product Scraper</title>
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Ribeye&display=swap" rel="stylesheet">
+    
+
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header id="header" class="hidden">
+        <div class="header-container">
+            <!-- Logo of the scraper app -->
+            <a href="#" class="logo">Amazon Product Scraper</a>
+            <div class="search">
+                <!-- Input field and button for searching again in the header -->
+                <input type="text" id="keyword-header" placeholder="Search again...">
+                <button id="clear-search">Clear Search</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Section -->
+    <main class="container">
+        <!-- Hero Section - Initial section where users can input a keyword -->
+        <section class="hero" id="hero">
+            <h2>Amazon Product Scraper</h2>
+            
+            <div class="search">
+                <!-- Input field and button for the initial search -->
+                <input type="text" id="keyword" placeholder="Enter a keyword...">
+                <button id="search">Search</button>
+            </div>
+        </section>
+
+        <!-- Results Section - This will be dynamically filled with product data -->
+        <section id="results" class="results hidden">
+            <!-- Product cards will be dynamically displayed here based on search results -->
+        </section>
+    </main>
+
+    <!-- Link to the main JavaScript file -->
+    <script src="./main.js"></script>
+</body>
+
+</html>
