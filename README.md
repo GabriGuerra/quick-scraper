@@ -51,7 +51,6 @@ Navigate to the backend directory install dependencies and start server:
 
 cd backend
 bun install
-Start the backend server:
 bun run src/server.ts
 ```
 The backend will be running at http://localhost:3000.
